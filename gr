@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require "colorize"
+
+#
+# NASTY CODE BUT HELPFUL
+#
+
+x = ARGV.join(".*")
+cmd = "grep -r #{x} ."
+puts cmd.green
+res = `#{cmd}`
+ARGV.each do |a|
+  res = res.gsub(a, a.cyan)
+end
+
+puts res
